@@ -2,7 +2,7 @@ package net.validcat.nom.framework;
 
 import net.validcat.nom.MainActivity;
 
-public abstract class AbstractGame extends MainActivity implements IGame {
+public abstract class AndroidGame extends MainActivity implements IGame {
 
 	@Override
 	public IInput getInput() {

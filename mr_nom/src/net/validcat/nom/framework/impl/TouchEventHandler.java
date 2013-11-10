@@ -9,7 +9,6 @@ import net.validcat.nom.framework.Pool.PoolObjectFactory;
 import net.validcat.nom.framework.TouchHandler;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 
 public class TouchEventHandler implements TouchHandler { //, OnTouchListener 
 	boolean[] isTouched = new boolean[20];
