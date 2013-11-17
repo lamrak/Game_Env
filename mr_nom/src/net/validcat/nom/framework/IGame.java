@@ -9,6 +9,6 @@ public interface IGame {
 	public IAudio getAudio();
 	public void setScreen(Screen screen);
 	public Screen getCurrentScreen();
-	public Screen getStartScreen();
+//	public Screen getStartScreen();
 
 }

@@ -1,6 +1,7 @@
 package net.validcat.nom.framework.impl;
 
 import net.validcat.nom.framework.AndroidGame;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
@@ -13,6 +14,10 @@ public class AndroidFastRenderView extends SurfaceView implements Runnable {
 	Thread renderThread = null;
 	SurfaceHolder holder;
 	volatile boolean running = false;
+	
+	public AndroidFastRenderView(Context context) {
+		super(context, null);
+	}
 	
 	public AndroidFastRenderView(AndroidGame game, Bitmap framebuffer) {
 		super(game);
