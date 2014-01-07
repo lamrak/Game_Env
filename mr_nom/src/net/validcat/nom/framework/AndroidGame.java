@@ -1,5 +1,6 @@
 package net.validcat.nom.framework;
 
+import android.app.Activity;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -15,22 +16,21 @@ import net.validcat.nom.framework.impl.AndroidInput;
 import net.validcat.nom.framework.impl.Audio;
 import net.validcat.nom.framework.impl.FileIO;
 
-public abstract class AndroidGame extends MainActivity implements IGame {
+public abstract class AndroidGame extends Activity implements IGame {
 	AndroidFastRenderView renderView;
 	IGraphics graphics;
 	IAudio audio;
 	IInput input;
 	IFileIO fileIO;
 	Screen screen;
-	WakeLock wakeLock;
+//	WakeLock wakeLock;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-		WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		
 		boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
 		int frameBufferWidth = isLandscape ? 480 : 320;
@@ -48,14 +48,14 @@ public abstract class AndroidGame extends MainActivity implements IGame {
 		screen = getStartScreen();
 		setContentView(renderView);
 		
-		PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-		wakeLock = powerManager.newWakeLock(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, "GLGame");
+//		PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
+//		wakeLock = powerManager.newWakeLock(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, "GLGame");
 	}
 	
 	@Override
 	public void onResume() {
 		super.onResume();
-		wakeLock.acquire();
+//		wakeLock.acquire();
 		screen.resume();
 		renderView.resume();
 	}
@@ -63,7 +63,7 @@ public abstract class AndroidGame extends MainActivity implements IGame {
 	@Override
 	public void onPause() {
 		super.onPause();
-		wakeLock.release();
+//		wakeLock.release();
 		renderView.pause();
 		screen.pause();
 		if (isFinishing())
@@ -96,9 +96,9 @@ public abstract class AndroidGame extends MainActivity implements IGame {
 			throw new IllegalArgumentException("Screen must not be null");
 		this.screen.pause();
 		this.screen.dispose();
+		this.screen = screen;
 		screen.resume();
 		screen.update(0);
-		this.screen = screen;
 	}
 
 	@Override
