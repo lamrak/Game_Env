@@ -1,20 +1,17 @@
 package net.validcat.nom.framework;
 
-import android.app.Activity;
-import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
-import android.os.Bundle;
-import android.os.PowerManager;
-import android.os.PowerManager.WakeLock;
-import android.view.Window;
-import android.view.WindowManager;
-import net.validcat.nom.MainActivity;
 import net.validcat.nom.framework.impl.AndroidFastRenderView;
 import net.validcat.nom.framework.impl.AndroidGraphics;
 import net.validcat.nom.framework.impl.AndroidInput;
 import net.validcat.nom.framework.impl.Audio;
 import net.validcat.nom.framework.impl.FileIO;
+import android.app.Activity;
+import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 
 public abstract class AndroidGame extends Activity implements IGame {
 	AndroidFastRenderView renderView;
@@ -25,6 +22,7 @@ public abstract class AndroidGame extends Activity implements IGame {
 	Screen screen;
 //	WakeLock wakeLock;
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

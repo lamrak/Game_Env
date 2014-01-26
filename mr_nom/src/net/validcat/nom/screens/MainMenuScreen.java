@@ -19,8 +19,6 @@ public class MainMenuScreen extends Screen {
 		super(game);
 	}
 
-	// TODO page 256
-
 	@Override
 	public void update(float deltaTime) {
 		IGraphics g = game.getGraphics();
@@ -37,13 +35,13 @@ public class MainMenuScreen extends Screen {
 				}
 				if (inBounds(event, 64, 220, 192, 42)) {
 					Log.d(LOG_TAG, "set GameScreen");
-//					game.setScreen(new GameScreen(game));
+					game.setScreen(new GameScreen(game));
 					if (Settings.soundEnabled) Assets.click.play(1);
 					return;
 				}
 				if (inBounds(event, 64, 220 + 42, 192, 42)) {
 					Log.d(LOG_TAG, "set HighscoreScreen");
-//					game.setScreen(new HighscoreScreen(game));
+					game.setScreen(new HighscoreScreen(game));
 					if (Settings.soundEnabled) Assets.click.play(1);
 					return;
 				}
