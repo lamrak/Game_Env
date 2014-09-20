@@ -6,10 +6,10 @@ import android.util.Log;
 
 import net.validcat.nom.Assets;
 import net.validcat.nom.Settings;
-import net.validcat.nom.framework.IGame;
-import net.validcat.nom.framework.IGraphics;
-import net.validcat.nom.framework.Screen;
-import net.validcat.nom.framework.IInput.TouchEvent;
+import net.validcat.framework.IGame;
+import net.validcat.framework.IGraphics;
+import net.validcat.framework.Screen;
+import net.validcat.framework.IInput.TouchEvent;
 
 public class HelpScreen2 extends Screen {
 	private static final String LOG_TAG = "HelpScreen2";

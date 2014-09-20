@@ -2,10 +2,10 @@ package net.validcat.nom.screens;
 
 import net.validcat.nom.Assets;
 import net.validcat.nom.Settings;
-import net.validcat.nom.framework.IGame;
-import net.validcat.nom.framework.IGraphics;
-import net.validcat.nom.framework.IGraphics.PixmapFormat;
-import net.validcat.nom.framework.Screen;
+import net.validcat.framework.IGame;
+import net.validcat.framework.IGraphics;
+import net.validcat.framework.IGraphics.PixmapFormat;
+import net.validcat.framework.Screen;
 
 public class LoadingScreen extends Screen {
 

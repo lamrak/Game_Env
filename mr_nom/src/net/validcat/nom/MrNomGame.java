@@ -1,7 +1,7 @@
 package net.validcat.nom;
 
-import net.validcat.nom.framework.AndroidGame;
-import net.validcat.nom.framework.Screen;
+import net.validcat.framework.AndroidGame;
+import net.validcat.framework.Screen;
 import net.validcat.nom.screens.LoadingScreen;
 
 public class MrNomGame extends AndroidGame {

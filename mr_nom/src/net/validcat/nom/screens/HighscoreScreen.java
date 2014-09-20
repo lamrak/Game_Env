@@ -4,10 +4,10 @@ import java.util.List;
 
 import net.validcat.nom.Assets;
 import net.validcat.nom.Settings;
-import net.validcat.nom.framework.IGame;
-import net.validcat.nom.framework.IGraphics;
-import net.validcat.nom.framework.IInput.TouchEvent;
-import net.validcat.nom.framework.Screen;
+import net.validcat.framework.IGame;
+import net.validcat.framework.IGraphics;
+import net.validcat.framework.IInput.TouchEvent;
+import net.validcat.framework.Screen;
 
 public class HighscoreScreen extends Screen {
 	private String lines[] = new String[5];

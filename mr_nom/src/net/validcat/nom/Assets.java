@@ -1,7 +1,7 @@
 package net.validcat.nom;
 
-import net.validcat.nom.framework.IPixmap;
-import net.validcat.nom.framework.ISound;
+import net.validcat.framework.IPixmap;
+import net.validcat.framework.ISound;
 
 public class Assets {
 	public static IPixmap background;
