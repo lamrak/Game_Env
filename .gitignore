@@ -4,3 +4,7 @@ mr_nom/gen/net/validcat/nom/BuildConfig.java
 mr_nom/gen/net/validcat/nom/R.java
 mr_nom/.settings/org.eclipse.jdt.core.prefs
 *.class
+gl_testes/bin/
+gl_testes/gen/com/example/glsurfaceviewtest/R.java
+defence_cannon/bin/
+defence_cannon/gen/
