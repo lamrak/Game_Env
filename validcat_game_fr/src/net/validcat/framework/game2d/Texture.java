@@ -1,4 +1,4 @@
-package net.validcat.framework;
+package net.validcat.framework.game2d;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLUtils;
 
+import net.validcat.framework.IFileIO;
 import net.validcat.framework.gl.GLGame;
 import net.validcat.framework.gl.GLGraphics;
 
@@ -19,6 +20,8 @@ public class Texture {
 	int textureId;
 	int minFilter;
 	int magFilter;
+	public int width;
+    public int height;
 	
 	public Texture(GLGame glGame, String fileName) {
 		this.glGraphics = glGame.getGLGraphics();
@@ -40,9 +43,11 @@ public class Texture {
 			GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
 			setFilters(GL10.GL_NEAREST, GL10.GL_NEAREST);
 			gl.glBindTexture(GL10.GL_TEXTURE_2D, 0);
+			width = bitmap.getWidth();
+            height = bitmap.getHeight();
+            bitmap.recycle();
 		} catch (IOException e) {
-			throw new RuntimeException("Couldn't load texture '" + fileName
-					+ "'", e);
+			throw new RuntimeException("Couldn't load texture '" + fileName	+ "'", e);
 		} finally {
 			if (in != null)
 				try {
