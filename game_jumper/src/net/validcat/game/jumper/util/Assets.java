@@ -7,7 +7,6 @@ import net.validcat.framework.game2d.Font;
 import net.validcat.framework.game2d.Texture;
 import net.validcat.framework.game2d.TextureRegion;
 import net.validcat.framework.gl.GLGame;
-import net.validcat.framework.impl.Sound;
 
 public class Assets {
 	public static Texture background;
@@ -93,7 +92,7 @@ public class Assets {
 			music.play();
 	}
 
-	public static void playSound(Sound sound) {
+	public static void playSound(ISound sound) {
 		if (Settings.soundEnabled)
 			sound.play(1);
 	}
