@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import net.validcat.framework.math.OverlapTester;
 import net.validcat.framework.math.Vector2;
 
 public class World {
@@ -91,11 +92,6 @@ public class World {
 			state = WORLD_STATE_GAME_OVER;
 	}
 
-	private void checkCollisions() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	private void updateCoins(float deltaTime) {
 		int len = coins.size();
 		for (int i = 0; i < len; i++) {
@@ -131,6 +127,71 @@ public class World {
 			bob.velocity.x = -accelX / 10 * Bob.BOB_MOVE_VELOCITY;
 		bob.update(deltaTime);
 		heightSoFar = Math.max(bob.position.y, heightSoFar);
+	}
+	
+	private void checkCollisions() {
+		checkPlatformCollisions();
+		checkSquirrelCollisions();
+		checkItemCollisions();
+		checkCastleCollisions();
+	}
+
+	private void checkCastleCollisions() {
+		if (OverlapTester.overlapRectangles(castle.bounds, bob.bounds))
+			state = WORLD_STATE_NEXT_LEVEL;
+	}
+
+	private void checkItemCollisions() {
+		int len = coins.size();
+		for (int i = 0; i < len; i++) {
+			Coin coin = coins.get(i);
+			if (OverlapTester.overlapRectangles(bob.bounds, coin.bounds)) {
+				coins.remove(coin);
+				len = coins.size();
+				listener.coin();
+				score += Coin.COIN_SCORE;
+			}
+		}
+		if (bob.velocity.y > 0)
+			return;
+		len = springs.size();
+		for (int i = 0; i < len; i++) {
+			Spring spring = springs.get(i);
+			if (bob.position.y > spring.position.y) {
+				if (OverlapTester.overlapRectangles(bob.bounds, spring.bounds)) {
+					bob.hitSpring();
+					listener.highJump();
+				}
+			}
+		}
+	}
+
+	private void checkSquirrelCollisions() {
+		for (int i = 0; i < squirrels.size(); i++) {
+			Squirrel squirrel = squirrels.get(i);
+			if (OverlapTester.overlapRectangles(squirrel.bounds, bob.bounds)) {
+				bob.hitSquirrel();
+				listener.hit();
+			}
+		}
+		
+	}
+
+	private void checkPlatformCollisions() {
+		if (bob.velocity.y > 0)
+			return;
+		for (int i = 0; i < platforms.size(); i++) {
+			Platform platform = platforms.get(i);
+			if (bob.position.y > platform.position.y) {
+				if (OverlapTester.overlapRectangles(bob.bounds, platform.bounds)) {
+					bob.hitPlatform();
+					listener.jump();
+					if (rand.nextFloat() > 0.5f)
+						platform.pulverize();
+					break;
+				}
+			}
+		}
 	}
 
 	public interface WorldListener {
