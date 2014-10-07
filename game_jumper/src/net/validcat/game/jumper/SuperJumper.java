@@ -5,6 +5,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 import net.validcat.framework.Screen;
 import net.validcat.framework.gl.GLGame;
+import net.validcat.game.jumper.screens.MainMenuScreen;
 import net.validcat.game.jumper.util.Assets;
 import net.validcat.game.jumper.util.Settings;
 
@@ -13,7 +14,7 @@ public class SuperJumper extends GLGame {
 
 	@Override
 	public Screen getStartScreen() {
-		 return null; // new MainMenuScreen(this);
+		 return new MainMenuScreen(this);
 	}
 	
 	 @Override

@@ -13,8 +13,8 @@ public class Platform extends DynamicGameObject {
 	public static final float PLATFORM_VELOCITY = 2;
 	
 	int type;
-	int state;
-	float stateTime;
+	public int state;
+	public float stateTime;
 	
 	public Platform(int type, float x, float y) {
 		super(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT);

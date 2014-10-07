@@ -7,12 +7,14 @@ import net.validcat.framework.gl.Camera2D;
 import net.validcat.framework.math.OverlapTester;
 import net.validcat.framework.math.Rectangle;
 import net.validcat.framework.math.Vector2;
+import net.validcat.game.jumper.WorldRenderer;
 import net.validcat.game.jumper.models.World;
 import net.validcat.game.jumper.models.World.WorldListener;
 import net.validcat.game.jumper.util.Assets;
 import net.validcat.game.jumper.util.Settings;
 
 import java.util.List;
+
 import javax.microedition.khronos.opengles.GL10;
 
 public class GameScreen extends GLScreen {
